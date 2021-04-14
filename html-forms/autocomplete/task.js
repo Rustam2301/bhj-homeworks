@@ -82,21 +82,19 @@ class Autocomplete {
       }
     */
 
-    const matches = [];
-    Array.from(this.input.options).forEach(match => {
-        if (match.text.includes(text)) {
-        matches.push({
-          text: match.text,
-          value: match.value
-        });
-      }
-    })
-    return [
-      {
-        text: 'Чубакка',
-        value: '1'
-      }
-    ];
+    let arrText = [];
+   let selectOptions = this.input.options;
+
+   for (let i = 0; i < selectOptions.length; i++) {
+     if ((selectOptions[i].text).includes(text)) {
+         let obj = {};
+         obj.text = selectOptions[i].text;
+         obj.value = selectOptions[i].value;
+
+         arrText.push(obj);
+       }
+   }
+    return arrText;
   }
 }
 
